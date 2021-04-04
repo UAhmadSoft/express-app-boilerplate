@@ -41,7 +41,7 @@ if (process.argv.length < 3) {
 const ownPath = process.cwd();
 const folderName = process.argv[2];
 const appPath = path.join(ownPath, folderName);
-const repo = 'https://github.com/UAhmadSoft/node-express-boilerplate.git';
+const repo = 'https://github.com/UAhmadSoft/express-app-starter';
 
 // Check if directory already exists
 try {
@@ -77,22 +77,22 @@ async function setup() {
     console.log('Dependencies installed successfully.');
     console.log();
 
-    // Copy envornment variables
-    fs.copyFileSync(path.join(appPath, '.env.example'), path.join(appPath, '.env'));
-    console.log('Environment files copied.');
+    // // Copy envornment variables
+    // fs.copyFileSync(path.join(appPath, '.env.example'), path.join(appPath, '.env'));
+    // console.log('Environment files copied.');
 
-    // Delete .git folder
-    await runCmd('npx rimraf ./.git');
+    // // Delete .git folder
+    // await runCmd('npx rimraf ./.git');
 
-    // Remove extra files
-    fs.unlinkSync(path.join(appPath, 'CHANGELOG.md'));
-    fs.unlinkSync(path.join(appPath, 'CODE_OF_CONDUCT.md'));
-    fs.unlinkSync(path.join(appPath, 'CONTRIBUTING.md'));
-    fs.unlinkSync(path.join(appPath, 'bin', 'createNodejsApp.js'));
-    fs.rmdirSync(path.join(appPath, 'bin'));
-    if (!useYarn) {
-      fs.unlinkSync(path.join(appPath, 'yarn.lock'));
-    }
+    // // Remove extra files
+    // fs.unlinkSync(path.join(appPath, 'CHANGELOG.md'));
+    // fs.unlinkSync(path.join(appPath, 'CODE_OF_CONDUCT.md'));
+    // fs.unlinkSync(path.join(appPath, 'CONTRIBUTING.md'));
+    // fs.unlinkSync(path.join(appPath, 'bin', 'createNodejsApp.js'));
+    // fs.rmdirSync(path.join(appPath, 'bin'));
+    // if (!useYarn) {
+    //   fs.unlinkSync(path.join(appPath, 'yarn.lock'));
+    // }
 
     console.log('Installation is now complete!');
     console.log();
@@ -102,7 +102,6 @@ async function setup() {
     console.log(useYarn ? '    yarn dev' : '    npm run dev');
     console.log();
     console.log('Enjoy your production-ready Node.js app, which already supports a large number of ready-made features!');
-    console.log('Check README.md for more info.');
   } catch (error) {
     console.log(error);
   }
